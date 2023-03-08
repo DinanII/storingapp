@@ -37,11 +37,11 @@ $extra = $_POST["extra"];
 
 if(isset($_POST['prioriteit']))
 {
-    $prioriteit = true;
+    $prioriteit = "True";
 }
 else 
 {
-    $prioriteit = false;
+    $prioriteit = "False";
 }
 
 
