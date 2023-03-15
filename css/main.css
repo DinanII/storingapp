@@ -87,7 +87,13 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-/* ALGEMEEN */
+/* ====================================================================== 
+
+
+    ALGEMEEN 
+  
+
+======================================================================*/
 
 html{
     font-size: 16px;
@@ -143,7 +149,14 @@ th{
     text-align: left;
 }
 
-/* HOME */
+
+/* ====================================================================== 
+
+
+    HOME 
+  
+
+======================================================================*/
 
 .home{
     min-height: calc(100vh - 7rem - 1px);
@@ -153,7 +166,14 @@ th{
     align-items: center;
 }
 
-/* MELDINGEN */
+
+/* ====================================================================== 
+
+
+    MELDINGEN 
+  
+
+======================================================================*/
 
 .form-group{
     margin: 1rem 0;
@@ -168,6 +188,25 @@ label{
 
 .form-input{
     width: 600px;
+}
+
+/* 
+  Zoekt specifieke child elementen van tr tag.
+  De selector kan een keyword (odd, even), nummer (voor een specifiek element)
+  of een formule zijn. Merk op dat hieronder met pseudoclasses gewerkt wordt.
+*/
+tr:nth-child(odd) {
+  background-color: #ebebeb;
+}
+
+/* Slecteert alleen de eerste child van tr tag */
+tr:first-child {
+  background-color: #d3d3d3;
+}
+
+/*Pseudoclass hover: Wanneer de cursor over het element gaat. */
+tr:hover {
+  background-color: #d3d3d3;
 }
 
 

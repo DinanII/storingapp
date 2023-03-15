@@ -50,8 +50,8 @@
                 <input type="text" name="melder" id="melder" class="form-input">
             </div>
             <div class="form-group">
-                <label for="extra">Overige info</label>
-                <textarea name="extra" id="extra" cols="80" rows="10"></textarea>
+                <label for="overige_info">Overige info</label>
+                <textarea name="overige_info" id="overige_info" cols="80" rows="10"></textarea>
             </div>
             
             <input type="submit" value="Verstuur melding">

@@ -19,7 +19,65 @@
             echo "<div class='msg'>" . $_GET['msg'] . "</div>";
         } ?>
 
-        <div style="height: 300px; background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">Hier komen de meldingen...</div>
+        
+        <!-- <div style="height: 300px; background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">Hier komen de meldingen...</div> -->
+
+
+        <?php 
+            require_once "../backend/conn.php"; // 1. Databaseverbinding (conn.php) ophalen.
+            $query = "SELECT * FROM meldingen"; // 2. Query typen 
+            $statement = $conn->prepare($query); // 3. Statement preparen
+            $statement->execute(); // 4. Statement uitvoeren
+            $meldingen = $statement->FetchAll(PDO::FETCH_ASSOC); // 5. Resultaat opslaan
+        ?>
+
+        <table>
+            <r>
+                <th>Attractie</th>
+                <th>Capaciteit</th>
+                <th>Attractietype</th>
+                <th>Melder</th>
+                <th>Overige Info</th>
+                <th>Prioriteit</th>
+                <th>Gemeld op</th>
+            </r>
+            <?php 
+               
+                foreach($meldingen as $melding): ?>
+                    <tr>
+                        <td><?php echo $melding["attractie"];?></td>
+                        <td><?php echo $melding["capaciteit"];?></td>
+                        <td><?php echo $melding["attrType"];?></td>
+                        <td><?php echo $melding["melder"];?></td>
+                        <td><?php echo $melding["overige_info"];?></td>
+                        <td><?php echo $melding["prioriteit"]; ?></td>
+                        <td><?php echo $melding["gemeld_op"]; ?></td>
+
+                    </tr>
+                    <?php endforeach; 
+                
+            ?>
+
+        </table>
+
+        
+        
+        <!-- PHP Print_r-->
+        <!-- <p>
+            <pre><?php // print_r($meldingen)  ?></pre>
+        </p> -->
+
+
+
+
+        <table>
+
+            <?php 
+?>
+        </table>
+        
+
+
     </div>  
 
 </body>

@@ -33,25 +33,31 @@ if(empty($attrType))
 }
 
 
-$extra = $_POST["extra"];
+$overige_info = $_POST["overige_info"];
 
 if(isset($_POST['prioriteit']))
 {
-    $prioriteit = "True";
+    $prioriteit = "Ja";
 }
 else 
 {
-    $prioriteit = "False";
+    $prioriteit = "Nee";
 }
 
 
-echo $attractie . " / " . $capaciteit . " / " . $melder . "/" . $attrType . "/" . $extra . "/" . $prioriteit;
+$gemeldOp = date('Y-m-d');
+
+if(isset($errors))
+{
+    var_dump($errors);
+    die();
+}
 
 //1. Verbinding
 require_once 'conn.php';
 
 //2. Query
-$query = "INSERT INTO meldingen (attractie, capaciteit, melder, attrType, prioriteit, extra) VALUES(:attractie, :capaciteit, :melder, :attrType, :prioriteit, :extra)";
+$query = "INSERT INTO meldingen (attractie, capaciteit, melder, attrType, prioriteit, overige_info, gemeld_op) VALUES(:attractie, :capaciteit, :melder, :attrType, :prioriteit, :overige_info, :gemeld_op)";
 
 
 //3. Prepare
@@ -65,14 +71,11 @@ $statement->execute([
     ":melder" => $melder,
     ":attrType" => $attrType,
     ":prioriteit" => $prioriteit,
-    ":extra" => $extra,
+    ":overige_info" => $overige_info,
+    ":gemeld_op" => $gemeldOp
 ]);
 
-if(isset($errors))
-{
-    var_dump($errors);
-    die();
-}
+
 
 header("Location: ../meldingen/index.php?msg=Melding opgeslagen");
 ?>

@@ -1,0 +1,7 @@
+        <!-- <?php 
+            foreach($lijst as $item): ?>
+            <tr>
+                <td><?php echo $item["attractie"]?></td>
+                <td><?php echo $item["type"]?></td>
+            </tr>
+            <?php endforeach; ?> -->
