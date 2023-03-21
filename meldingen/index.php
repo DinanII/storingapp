@@ -3,12 +3,12 @@
 
 <head>
     <title>StoringApp / Meldingen</title>
-    <?php require_once '../head.php'; ?>
+    <?php require_once "../head.php"; ?>
 </head>
 
 <body>
 
-    <?php require_once '../header.php'; ?>
+    <?php require_once "../header.php"; ?>
     
     <div class="container">
         <h1>Meldingen</h1>
@@ -40,6 +40,7 @@
                 <th>Overige Info</th>
                 <th>Prioriteit</th>
                 <th>Gemeld op</th>
+                <th>Aanpassen</th>
             </r>
             <?php 
                
@@ -52,6 +53,7 @@
                         <td><?php echo $melding["overige_info"];?></td>
                         <td><?php echo $melding["prioriteit"]; ?></td>
                         <td><?php echo $melding["gemeld_op"]; ?></td>
+                        <td><a href="edit.php?id=1">Aanpassen</a></td>
 
                     </tr>
                     <?php endforeach; 
