@@ -53,7 +53,7 @@
                         <td><?php echo $melding["overige_info"];?></td>
                         <td><?php echo $melding["prioriteit"]; ?></td>
                         <td><?php echo $melding["gemeld_op"]; ?></td>
-                        <td><a href="edit.php?id=1">Aanpassen</a></td>
+                        <td><a href="edit.php?id=<?php echo $melding["id"];?>">Aanpassen</a></td>
 
                     </tr>
                     <?php endforeach; 
@@ -61,25 +61,10 @@
             ?>
 
         </table>
-
-        
-        
         <!-- PHP Print_r-->
         <!-- <p>
             <pre><?php // print_r($meldingen)  ?></pre>
         </p> -->
-
-
-
-
-        <table>
-
-            <?php 
-?>
-        </table>
-        
-
-
     </div>  
 
 </body>

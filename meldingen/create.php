@@ -14,7 +14,7 @@
         <h1>Nieuwe melding</h1>
 
         <form action="../backend/meldingenController.php" method="POST">
-        
+            <input type="hidden" name="action" value="create">
             <div class="form-group">
                 <label for="attractie">Naam attractie:</label>
                 <input type="text" name="attractie" id="attractie" class="form-input">
@@ -35,6 +35,9 @@
 
             </div>
             <div class="form-group">
+
+                <input type="hidden" name="action" value="create">
+
                 <label for="capaciteit">Capaciteit p/uur:</label>
                 <input type="number" min="0" name="capaciteit" id="capaciteit" class="form-input">
             </div>
