@@ -77,7 +77,7 @@
             </div>
             <div class="form-group">
                 <label for="overig">Overige info:</label>
-                <textarea name="overige_info" id="overige_info" class="form-input" rows="4">.....</textarea>
+                <textarea name="overige_info" id="overige_info" class="form-input" rows="4"><?php echo $melding["overige_info"]; ?></textarea>
             </div>
             
             <input type="submit" value="Melding opslaan">

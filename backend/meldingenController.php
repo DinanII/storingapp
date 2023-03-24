@@ -111,5 +111,5 @@ else if ($action == "update")
         ":id" => $id             
     ]);
 }
-header("../meldingen/index.php");
+header("Location: ../meldingen/index.php");
 ?>
