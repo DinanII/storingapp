@@ -110,6 +110,19 @@ else if ($action == "update")
         ":overige_info" => $overige_info,
         ":id" => $id             
     ]);
+
+}
+else if ($action == "delete")
+{
+    $id = $_POST["id"];
+    
+    require_once "../backend/conn.php";
+
+    $query = "DELETE FROM meldingen WHERE id = :id";
+    $statement = $conn->prepare($query);
+    $statement->execute([
+        ":id" => $id
+    ]);
 }
 header("Location: ../meldingen/index.php");
 ?>
