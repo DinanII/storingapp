@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="nl">
-
 <head>
     <title>StoringApp</title>
     <?php require_once 'head.php'; ?>

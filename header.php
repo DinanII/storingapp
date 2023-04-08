@@ -7,8 +7,13 @@
             <a href="<?php echo $base_url; ?>/index.php">Home</a> |
             <a href="<?php echo $base_url; ?>/meldingen/index.php">Meldingen</a>
         </nav>
+
         <div>
-            <a href="#" style="color: lightgrey;">Inloggen</a>
+            <?php if(isset($_SESSION["user_id"])): ?>
+                <a href="<?php echo $base_url?>/logout.php">Uitloggen</a>
+            <?php else: ?>
+                <a href="<?php echo $base_url;?>/login.php">Inloggen</a>
+            <?php endif; ?>
         </div>
     </div>
 </header>
