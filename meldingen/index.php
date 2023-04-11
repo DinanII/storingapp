@@ -34,15 +34,51 @@
         <!-- <div style="height: 300px; background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">Hier komen de meldingen...</div> -->
 
 
-        <?php 
-            require_once "../backend/conn.php"; // 1. Databaseverbinding (conn.php) ophalen.
-            $query = "SELECT * FROM meldingen"; // 2. Query typen 
-            $statement = $conn->prepare($query); // 3. Statement preparen
-            $statement->execute(); // 4. Statement uitvoeren
-            $meldingen = $statement->FetchAll(PDO::FETCH_ASSOC); // 5. Resultaat opslaan
+        <?php
+
+            if( (empty($_GET["category"])) || (($_GET["category"]) == "") )
+            {
+                require_once "../backend/conn.php"; // 1. Databaseverbinding (conn.php) ophalen.
+                $query = "SELECT * FROM meldingen "; // 2. Query typen // WHERE creator_id = :user_id ... ORDER BY gemeld_op DESC
+                $statement = $conn->prepare($query); // 3. Statement preparen
+                $statement->execute(); // 4. Statement uitvoeren  // [":user_id" => $_SESSION["user_id"]
+                $meldingen = $statement->FetchAll(PDO::FETCH_ASSOC); // 5. Resultaat opslaan
+            }
+            else if(!empty($_GET["category"]))
+            {
+                require_once "../backend/conn.php"; // 1. Databaseverbinding (conn.php) ophalen.
+                $query = "SELECT * FROM meldingen WHERE attrType = :category "; // 2. Query typen // creator_id = :user_id AND ...  ORDER BY gemeld_op DESC
+                $statement = $conn->prepare($query); // 3. Statement preparen
+                $statement->execute([
+                    // ":user_id" => $_SESSION["user_id"],
+                    ":category" => $_GET["category"]
+                ]); // 4. Statement uitvoeren
+                $meldingen = $statement->FetchAll(PDO::FETCH_ASSOC); // 5. Resultaat opslaan
+            }
         ?>
 
-        <table>
+
+        <div class="flexbcontainer">
+            
+            <span class="amout">Aantal meldingen: <strong><?php echo Count($meldingen); ?></strong></span>  
+    
+            <!-- Action attribuut leeg? -> Formulier wordt naar pagina zelf verzonden -->
+            <form action="" method="GET">
+                <select name="category" id="status">
+                    <option value=""> - Kies status om te filteren - </option>
+                    <option value="achtbaan">Achtbaan</option>
+                    <option value="draaiend">Draaiend</option>
+                    <option value="kinder">Kinder</option>
+                    <option value="horeca">Horeca</option>
+                    <option value="show">Show</option>
+                    <option value="water">Water</option>
+                    <option value="overig">Overig</option>
+                </select>
+                <input type="submit" value="filter">
+            </form>
+        </div>
+    
+        <table class="meldingen">
             <tr>
                 <th>Attractie</th>
                 <th>Capaciteit</th>
@@ -59,7 +95,7 @@
                     <tr>
                         <td><?php echo $melding["attractie"];?></td>
                         <td><?php echo $melding["capaciteit"];?></td>
-                        <td><?php echo $melding["attrType"];?></td>
+                        <td><?php echo ucfirst($melding["attrType"]);?></td>
                         <td><?php echo $melding["melder"];?></td>
                         <td><?php echo $melding["overige_info"];?></td>
                         <td><?php echo $melding["prioriteit"]; ?></td>

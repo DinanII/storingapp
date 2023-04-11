@@ -68,7 +68,7 @@ if ($action == "create")
     require_once 'conn.php';
 
     //2. Query
-    $query = "INSERT INTO meldingen (attractie, capaciteit, melder, attrType, prioriteit, overige_info, gemeld_op) VALUES(:attractie, :capaciteit, :melder, :attrType, :prioriteit, :overige_info, :gemeld_op)";
+    $query = "INSERT INTO meldingen (creator_id, status, attractie, capaciteit, melder, attrType, prioriteit, overige_info, gemeld_op) VALUES(:creator_id, :status, :attractie, :capaciteit, :melder, :attrType, :prioriteit, :overige_info, :gemeld_op)";
 
 
     //3. Prepare
@@ -76,7 +76,8 @@ if ($action == "create")
 
     //4. Execute
     $statement->execute([
-
+        ":creator_id" => $_SESSION["user_id"],
+        ":status" => "todo",
         ":attractie" => $attractie,
         ":capaciteit" => $capaciteit,
         ":melder" => $melder,

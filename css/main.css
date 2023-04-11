@@ -210,10 +210,25 @@ tr:hover {
 }
 
 
+.amout 
+{
+  /* background-color: #999; */
+  padding: 5px;
+  margin-bottom: 10px;
+}
 
+.meldingen
+{
+  margin-top: 14px;
+}
 
-
-
+.flexbcontainer
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
 
 
 
