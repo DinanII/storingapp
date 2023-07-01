@@ -50,7 +50,6 @@
                 $query = "SELECT * FROM meldingen WHERE attrType = :category "; // 2. Query typen // creator_id = :user_id AND ...  ORDER BY gemeld_op DESC
                 $statement = $conn->prepare($query); // 3. Statement preparen
                 $statement->execute([
-                    // ":user_id" => $_SESSION["user_id"],
                     ":category" => $_GET["category"]
                 ]); // 4. Statement uitvoeren
                 $meldingen = $statement->FetchAll(PDO::FETCH_ASSOC); // 5. Resultaat opslaan
