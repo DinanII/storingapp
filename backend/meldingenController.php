@@ -28,7 +28,7 @@ if ($action == "create")
     }
 
 
-    $melder = $_POST['melder'];
+    $melder = $_SESSION["username"];
 
     if(empty($melder))
     {

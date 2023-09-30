@@ -6,7 +6,7 @@
             <img src="<?php echo $base_url; ?>/img/logo-big-v4.png" alt="logo" class="logo">
             <a href="<?php echo $base_url; ?>/index.php">Home</a> |
             <a href="<?php echo $base_url; ?>/meldingen/index.php">Meldingen</a>
-            <a href="<?php echo $base_url; ?>/functies.php">Functies</a>
+            <a href="<?php echo $base_url;  ?>/functies.php" target="_blank">Functies</a>
         </nav>
 
         <div>

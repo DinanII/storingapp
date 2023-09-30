@@ -60,7 +60,8 @@
             </div>
             <div class="form-group">
                 <label for="melder">Naam melder:</label>
-                <input type="text" name="melder" id="melder" class="form-input">
+                <span><?php echo $_SESSION["username"]; ?></span>
+                <!-- <input type="text" name="melder" id="melder" class="form-input"> -->
             </div>
             <div class="form-group">
                 <label for="overige_info">Overige info</label>

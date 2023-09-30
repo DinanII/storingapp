@@ -26,6 +26,7 @@
 
 
     $_SESSION["user_id"] = $item["id"];
+    $_SESSION["username"] = $item["username"];
     require_once "config.php";
     header("Location: $base_url/meldingen/index.php");
 ?>
