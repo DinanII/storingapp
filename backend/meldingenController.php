@@ -48,11 +48,11 @@ if ($action == "create")
 
     if(isset($_POST['prioriteit']))
     {
-        $prioriteit = "Ja";
+        $prioriteit = true;
     }
     else 
     {
-        $prioriteit = "Nee";
+        $prioriteit = false;
     }
 
 
