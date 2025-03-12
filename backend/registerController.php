@@ -85,11 +85,12 @@
     require_once "conn.php";
 
 
-    $query = "INSERT INTO users (name, username, password) VALUES (:name, :username, :password)";
+    $query = "INSERT INTO users (`name`, `username`, `email`, `password`) VALUES (:name, :username,:email :password)";
     $statement = $conn->prepare($query);
     $statement->execute([
         ":name" => $name,
         ":username" => $username,
+        ":email"=>$emailInput,
         ":password" => $password,
   
     ]);
@@ -110,7 +111,7 @@
         session_start();
         $_SESSION["user_id"] = $user["id"];
         $_SESSION["username"] = $user["username"];
-        $_SESSION["department"] = $user["afdeling"];
+        // $_SESSION["department"] = $user["afdeling"];
         header("Location: ../meldingen/index.php");
     }
 
